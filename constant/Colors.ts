@@ -8,8 +8,12 @@ export const Colors = {
         text: '#000000',
         secondaryText: '#6B7280',
 
-        buttonColor: '#0077B6',
-        buttonTextColor: '#46BFD8',
+        buttonColor: '#FFFFFF',
+        buttonFocusedColor: '#0077B6',
+        buttonTextColor: '#6B7280',
+        buttonFocusedTextColor: '#FFFFFF',
+        buttonBorderColor: '#6B7280',
+        buttonFocusedBorderColor: '#0077B6',
     },
     dark: {
         background: '#1A1D21',
@@ -20,8 +24,11 @@ export const Colors = {
         text: '#FFFFFF',
         secondaryText: '#94A3B8',
 
-        buttonColor: '#0077B6',
-        buttonTextColor: '#46BFD8',
-
+        buttonColor: '#3B4252',
+        buttonFocusedColor: '#0077B6',
+        buttonTextColor: '#8E9CB1',
+        buttonFocusedTextColor: '#FFFFFF',
+        buttonBorderColor: '#3B4252',
+        buttonFocusedBorderColor: '#0077B6',
     }
 }

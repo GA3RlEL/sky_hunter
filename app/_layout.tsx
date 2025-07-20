@@ -65,7 +65,7 @@ function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
                 className="rounded-lg p-1"
                 style={{
                   backgroundColor: isFocused
-                    ? theme.buttonColor
+                    ? theme.buttonFocusedColor
                     : "transparent",
                 }}
               >
@@ -76,15 +76,15 @@ function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
                       : navTabIcons[route.name]
                   }
                   size={20}
-                  color={isFocused ? "#ffffff" : theme.secondaryText}
+                  color={isFocused ? theme.buttonFocusedTextColor : theme.buttonTextColor}
                 />
               </View>
 
               <Text
                 style={{
                   color: isFocused
-                    ? theme.buttonTextColor
-                    : theme.secondaryText,
+                    ? theme.buttonFocusedColor
+                    : theme.buttonTextColor,
                 }}
               >
                 {label}

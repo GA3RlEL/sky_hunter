@@ -1,0 +1,15 @@
+import { Ionicons } from "@expo/vector-icons";
+
+export const navTabIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
+  Flights: "airplane-outline",
+  Favourites: "heart-outline",
+  Search: "home-outline",
+  Profile: "person-outline",
+};
+
+export const navTabIconsFocused: Record<string, keyof typeof Ionicons.glyphMap> = {
+  Flights: "airplane",
+  Favourites: "heart",
+  Search: "home",
+  Profile: "person",
+};

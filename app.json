@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "sky_hunter",
+    "scheme": "skyhunter",
     "slug": "sky_hunter",
     "version": "1.0.0",
     "orientation": "portrait",

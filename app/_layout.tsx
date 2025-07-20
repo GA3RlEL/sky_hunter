@@ -21,6 +21,11 @@ import Favourites from "./(tabs)/Favourites";
 import Profile from "./(tabs)/Profile";
 
 function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
+  {/* 
+    This component renders a custom navigation bar for the bottom tab navigator.
+    It uses Ionicons for icons and applies styles based on the current color scheme.
+  */}
+
   const scheme = useColorScheme();
   const theme = Colors[scheme!] ?? Colors.light;
 
@@ -95,6 +100,11 @@ function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  {/* 
+    This is the main app component that sets up 
+    the bottom tab navigator with custom navigation bar. 
+  */}
+
   return (
     <Tab.Navigator
       screenOptions={{

@@ -13,18 +13,22 @@ const Search = () => {
     <ThemedSafeAreaView className="flex-1 gap-6">
       <ThemedView className="gap-3 p-6">
         <ThemedText className="text-4xl font-bold">SkyBook</ThemedText>
-        <ThemedText>Find your perfect flight</ThemedText>
+        <ThemedText className="font-semibold text-lg" fontColor="secondaryText">
+          Find your perfect flight
+        </ThemedText>
       </ThemedView>
-      <View className="w-[90%] mx-auto">
+
+      <View className="flex-1 w-[90%] mx-auto gap-6">
         <FlightInputs />
+
+        <ThemedButton
+          text="Search Flights"
+          onPress={() => setFocused(!focused)}
+          isFocused={focused}
+          className="p-4  rounded-full flex flex-row items-center justify-center"
+          icon={"search"}
+        ></ThemedButton>
       </View>
-      <ThemedButton
-        text="Search Flights"
-        onPress={() => setFocused(!focused)}
-        isFocused={focused}
-        className="p-4 rounded-lg flex flex-row items-center justify-center"
-        icon={"search"}
-      ></ThemedButton>
     </ThemedSafeAreaView>
   );
 };

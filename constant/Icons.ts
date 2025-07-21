@@ -7,9 +7,17 @@ export const navTabIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
   Profile: "person-outline",
 };
 
-export const navTabIconsFocused: Record<string, keyof typeof Ionicons.glyphMap> = {
+export const navTabIconsFocused: Record<
+  string,
+  keyof typeof Ionicons.glyphMap
+> = {
   Flights: "airplane",
   Favourites: "heart",
   Search: "home",
   Profile: "person",
+};
+
+export const favFlightIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
+  Star: "star",
+  DoubleArrows: "swap-horizontal",
 };

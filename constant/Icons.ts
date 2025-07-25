@@ -21,3 +21,9 @@ export const favFlightIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
   Star: "star",
   DoubleArrows: "swap-horizontal",
 };
+
+export const profileIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
+  PersonalData: "person",
+  Notifications: "notifications-outline",
+  Help: "help-circle-outline",
+};

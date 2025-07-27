@@ -1,4 +1,4 @@
-import "./global.css";
+import "./global.css"
 
 import React from "react";
 import { useColorScheme, View } from "react-native";
@@ -14,11 +14,11 @@ import { PlatformPressable, Text } from "@react-navigation/elements";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "../constant/Colors";
 import { navTabIcons, navTabIconsFocused } from "../constant/Icons";
-
 import Search from "./(tabs)/Search";
 import Flights from "./(tabs)/Flights";
 import Favourites from "./(tabs)/Favourites";
 import Profile from "./(tabs)/Profile";
+import { FlightsProvider } from "../contexts/FlightsContext";
 
 function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
   {/* 
@@ -33,7 +33,7 @@ function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
   return (
     <View
-      className="flex flex-row bg-red-300 pb-8 pt-5"
+      className="flex flex-row pb-8 pt-5"
       style={{ backgroundColor: theme.primary }}
     >
       {state.routes.map((route, index) => {
@@ -106,16 +106,18 @@ export default function App() {
   */}
 
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-      tabBar={(props) => <NavigationBar {...props} />}
-    >
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Flights" component={Flights} />
-      <Tab.Screen name="Favourites" component={Favourites} />
-      <Tab.Screen name="Profile" component={Profile} />
-    </Tab.Navigator>
+    <FlightsProvider>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        tabBar={(props) => <NavigationBar {...props} />}
+      >
+        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Flights" component={Flights} />
+        <Tab.Screen name="Favourites" component={Favourites} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+    </FlightsProvider>
   );
 }

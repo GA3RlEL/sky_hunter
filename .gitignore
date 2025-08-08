@@ -35,3 +35,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Backend
+backend/.idea
+backend/__pycache__
+backend/.env

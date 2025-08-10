@@ -16,10 +16,14 @@ async def root():
     except ResponseError as e:
         return {"error": str(e)}
 
+# This endpoint retrieves IATA code along with the typ (City, Airport) and name of the City or airport
 @app.get("/getiata/{airport_name}")
 async def getiata(airport_name:str):
     try:
-        response = amadeus.reference_data.locations.get(keyword=airport_name, subType=Location.ANY)
-        return response.data
+        response = amadeus.reference_data.locations.get(keyword=airport_name, subType="CITY,AIRPORT")
+        results = []
+        for item in response.data:
+            results.append({"type": item['subType'], "name": item['name'], "iata": item['iataCode']})
+        return results
     except ResponseError as e:
         return {"error": str(e)}

@@ -40,3 +40,9 @@ yarn-error.*
 backend/.idea
 backend/__pycache__
 backend/.env
+backend/**/__pycache__/
+backend/src/**/__pycache__/
+backend/src/db/__pycache__/__init__.cpython-313.pyc
+backend/src/db/__pycache__/__init__.cpython-313.pyc
+backend/src/__pycache__/config.cpython-313.pyc
+backend/src/__pycache__/__init__.cpython-313.pyc

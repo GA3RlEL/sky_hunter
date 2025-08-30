@@ -19,6 +19,9 @@ import Flights from "./(tabs)/Flights";
 import Favourites from "./(tabs)/Favourites";
 import Profile from "./(tabs)/Profile";
 import { FlightsProvider } from "../contexts/FlightsContext";
+import { DropDownProvider } from "../contexts/DropDownContext";
+import { DateProvider } from "../contexts/DateContext";
+import { AirportsProvider } from "../contexts/AirportsContext";
 
 function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
   {/* 
@@ -40,6 +43,10 @@ function NavigationBar({ state, descriptors, navigation }: BottomTabBarProps) {
         const { options } = descriptors[route.key];
         const label = route.name;
         const isFocused = state.index === index;
+
+        if (!isFocused && route.name === "Flights") {
+          return null;
+        }
 
         const onPress = () => {
           const event = navigation.emit({
@@ -106,18 +113,24 @@ export default function App() {
   */}
 
   return (
-    <FlightsProvider>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        tabBar={(props) => <NavigationBar {...props} />}
-      >
-        <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Flights" component={Flights} />
-        <Tab.Screen name="Favourites" component={Favourites} />
-        <Tab.Screen name="Profile" component={Profile} />
-      </Tab.Navigator>
-    </FlightsProvider>
+    <AirportsProvider>
+      <DateProvider>
+        <DropDownProvider>
+          <FlightsProvider>
+            <Tab.Navigator
+              screenOptions={{
+                headerShown: false,
+              }}
+              tabBar={(props) => <NavigationBar {...props} />}
+            >
+              <Tab.Screen name="Search" component={Search} />
+              <Tab.Screen name="Flights" component={Flights} />
+              <Tab.Screen name="Favourites" component={Favourites} />
+              <Tab.Screen name="Profile" component={Profile} />
+            </Tab.Navigator>
+          </FlightsProvider>
+        </DropDownProvider>
+      </DateProvider>
+    </AirportsProvider>
   );
 }

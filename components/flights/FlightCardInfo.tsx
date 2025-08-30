@@ -1,42 +1,24 @@
-import React from "react";
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  useColorScheme,
-  View,
-} from "react-native";
-import { Colors } from "../../constant/Colors";
-import ThemedText from "../themed/ThemedText";
-import ThemedView from "../themed/ThemedView";
+import { View, Text, Image, useColorScheme } from 'react-native'
+import React from 'react'
+import ThemedText from '../themed/ThemedText';
+import { Colors } from '../../constant/Colors';
 
-interface FlightCardProps {
-  airlineLogoUrl: string;
-  origin: string;
-  destination: string;
-  price: number;
-  stops: number;
-  departure: Date;
-  arrival: Date;
+interface FlightCardInfoProps {
+    airlineLogoUrl: string,
+    origin: string,
+    destination: string,
+    stops: number,
+    departure: Date,
+    arrival: Date,
 }
 
-export default function FlightCard({
-  airlineLogoUrl,
-  origin,
-  destination,
-  price,
-  departure,
-  arrival,
-  stops = 0,
-}: FlightCardProps) {
-  const scheme = useColorScheme();
-  const theme = Colors[scheme!] ?? Colors.light;
+const FlightCardInfo = (
+    {airlineLogoUrl, origin, destination, stops, departure, arrival} : FlightCardInfoProps
+) => {
+      const scheme = useColorScheme();
+      const theme = Colors[scheme!] ?? Colors.light;
 
-  const formatAmount = (value: number) => {
-    return value.toLocaleString("en-us", { minimumFractionDigits: 2 });
-  };
-
-  const generateStopsPositions = (stops: number) => {
+        const generateStopsPositions = (stops: number) => {
     if (stops === 1) return [50];
     else if (stops === 2) return [25, 75];
     else if (stops === 3) return [25, 50, 75];
@@ -66,8 +48,7 @@ export default function FlightCard({
   };
 
   return (
-    <TouchableOpacity>
-      <ThemedView className="h-32 mb-5 mx-3 rounded-lg justify-between">
+    <View>
         <View className="flex-row ml-3 mt-3">
           <View className="w-10 h-10 rounded-full bg-white justify-center items-center  ">
             <Image
@@ -117,15 +98,8 @@ export default function FlightCard({
             <Text style={{ color: theme.secondaryText }}>{destination}</Text>
           </View>
         </View>
-        <View className="items-end mb-3 mr-3">
-          <Text
-            className="font-bold text-2xl"
-            style={{ color: "rgb(33, 150, 255)" }}
-          >
-            {formatAmount(price)} zł
-          </Text>
-        </View>
-      </ThemedView>
-    </TouchableOpacity>
-  );
+    </View>
+  )
 }
+
+export default FlightCardInfo

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity, useColorScheme, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, useColorScheme, View } from "react-native";
 import { Colors } from "../../constant/Colors";
 
 import ThemedView from "../themed/ThemedView";
@@ -25,12 +25,18 @@ export default function Header({
   return (
     <ThemedView className="flex flex-row items-center pl-2 py-4 gap-2">
       <TouchableOpacity>
-        <Ionicons name={"arrow-back"} size={32} color={theme.buttonFocusedColor}/>
+        <Ionicons
+          name={"arrow-back"}
+          size={32}
+          color={theme.buttonFocusedColor}
+        />
       </TouchableOpacity>
       <View>
-        <ThemedText className="text-xl font-bold">
-          {departure} → {arrival}
-        </ThemedText>
+        <ScrollView horizontal>
+          <ThemedText className="text-xl font-bold">
+            {departure} → {arrival}
+          </ThemedText>
+        </ScrollView>
         <Text className="text-lg" style={{ color: theme.secondaryText }}>
           {date} • {passengers} {passengers === 1 ? "pasażer" : "pasażerów"}
         </Text>

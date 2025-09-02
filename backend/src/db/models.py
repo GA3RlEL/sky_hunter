@@ -13,8 +13,8 @@ class User(SQLModel, table=True):
     last_name:str
     email:str = Field(index=True, unique=True)
     password:str = Field(index=True)
-    created_at:datetime = Field(default=datetime.now())
-    updated_at:datetime = Field(default=datetime.now())
+    created_at:datetime = Field(sa_column=Column(pg.TIMESTAMP,default=datetime.now()))
+    updated_at:datetime = Field(sa_column=Column(pg.TIMESTAMP,default=datetime.now()))
 
     def __repr__(self):
         return f"User => {self.first_name}"

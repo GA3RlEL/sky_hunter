@@ -6,6 +6,7 @@ from bcrypt import checkpw
 import jwt
 import os
 from dotenv import load_dotenv
+from fastapi import HTTPException, status
 
 load_dotenv()
 
@@ -22,10 +23,11 @@ class AuthService:
     user = result.first()
 
 
-    if user and checkpw(login_data.password.encode('utf-8'), user.password.encode('utf-8')):
-      token = jwt.encode({"user_id": str(user.id), "email":user.email}, SECRET_KEY, algorithm="HS256")
-      return {"access_token": token, "token_type": "bearer"}
+    if not user or not checkpw(login_data.password.encode('utf-8'), user.password.encode('utf-8')):
+      raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
 
 
 
-    return {"error": "Invalid email or password"}
+
+    token = jwt.encode({"user_id": str(user.id), "email":user.email}, SECRET_KEY, algorithm="HS256")
+    return {"access_token": token, "token_type": "bearer"}

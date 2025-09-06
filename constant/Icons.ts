@@ -27,3 +27,8 @@ export const profileIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
   Notifications: "notifications-outline",
   Help: "help-circle-outline",
 };
+
+export const authIcons: Record<string, keyof typeof Ionicons.glyphMap> = {
+  Email: "mail-outline",
+  Password: "lock-closed-outline",
+};

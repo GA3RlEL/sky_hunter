@@ -5,6 +5,7 @@ from http import HTTPStatus
 from .service import UserService
 from .schemas import UserCreateModel, UserResponseModel
 from typing import List
+from src.auth.dependencies import verify_token
 
 user_router = APIRouter(
     prefix="/users",
